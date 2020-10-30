@@ -1,17 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('Create python script') {
+        stage('Clone files from GitLab') {
             steps {
-            sh "chmod +x ./create-python-test"
-            sh "touch python-test.py"
+            sh 'git clone https://gitlab.com/qacdevops/chaperootodo_client.git'
            
             }
         }   
-        stage('Run python script') {
+        stage('Install Docker and Docker-compose') {
             steps {
-            sh 'python3 python-test.py'
+            sh 'curl https://get.docker.com | sudo bash'
+            sh 'sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'
+            sh 'sudo chmod +x /usr/local/bin/docker-compose'
             }
         }
+        
+        stage('Deploy app') {
+            steps {
+            sh 'sudo docker-compose pull && sudo -E DB_PASSWORD=${DB_PASSWORD} docker-compose up -d'
+            }
+        }
+            
     }       
 }
