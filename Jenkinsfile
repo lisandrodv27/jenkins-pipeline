@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Make python script') {
             steps {
-            sh "chmod +x ./scripts/make-python.sh"
-            sh "./scripts/make-python.sh"
+            sh "chmod +x ./make-groovy-test"
+            sh "touch groovy-test.sh"
             }
         }   
         stage('Run python script') {
             steps {
-            sh 'python3 helloworld.py'
+            sh 'groovy groovy-test.sh'
             }
         }
     }       
