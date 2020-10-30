@@ -4,7 +4,6 @@ pipeline {
         stage('Make python script') {
             steps {
             sh 'touch helloworld.py'
-            sh 'echo "print('hello world')" > helloworld.py'
             }
         }   
         stage('Run python script') {
