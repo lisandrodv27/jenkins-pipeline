@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Create python script') {
             steps {
-          
+            sh "chmod +x ./create-python-test"
             sh "touch python-test.py"
-            sh "chmod +x ./create-python-test/python-test.py"
+           
             }
         }   
         stage('Run python script') {
