@@ -1,0 +1,4 @@
+#! /bin/bash
+
+touch groovy-test.sh
+echo "println('hey')" > groovy groovy-test.sh
