@@ -1,4 +1,4 @@
 #! /bin/bash
 
 touch pythin-test.py
-echo "print('hey m8')" > python-test.py
+echo "print('hey m8')" < python-test.py
