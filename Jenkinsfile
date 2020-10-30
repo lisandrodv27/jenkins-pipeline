@@ -1,15 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Make python script') {
+        stage('Create python script') {
             steps {
-            sh "chmod +x ./make-groovy-test"
-            sh "touch groovy-test.sh"
+            sh "chmod +x ./create-python-test"
+            sh "touch python-test.py"
             }
         }   
         stage('Run python script') {
             steps {
-            sh 'groovy groovy-test.sh'
+            sh 'python3 python-test.py'
             }
         }
     }       
