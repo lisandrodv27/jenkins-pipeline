@@ -5,7 +5,7 @@ pipeline {
             steps {
           
             sh "touch python-test.py"
-            sh "chmod +x ./create-python-test"
+            sh "chmod +x ./create-python-test/python-test.py"
             }
         }   
         stage('Run python script') {
